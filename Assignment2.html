@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Aib Acob IS117 - A12</title>
+    <link rel="stylesheet" type="text/css" href="Assignment2.css" />
+
+    <script>
+        function setCookie (cname, cvalue,exdays){
+            const d = new Date();
+            d.setTime(d.getTime()+(exdays*24*60*60*1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie= cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            let name = cname + "="; 
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i < ca.length; i++){
+                let c = ca[i];
+                while (c.charAt(0) == ' '){
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function checkCookie() {
+            let user = getCookie("username");
+            if (user != ""){
+                alert("Welcome Back " + user);
+            } else {
+                user = prompt("Please enter your name:","");
+                if (user != "" && user != null){
+                    setCookie("username", user, 30);
+                }
+            }
+        }
+    </script>
+
+</head >
+<body onload="checkCookie()">
+   
+    <div class="BGImage">
+        <img class="BGImage" src="https://www.image-line.com/wp-content/uploads/2020/09/GSW_YouTubeThumb-1170x658.png" alt="FLStudio" />
+    </div>
+
+
+    <form id="form1" action=""> 
+        <table>
+            <tr>
+                <th>
+                    <div class="LLAL">
+                        <h1>Beats For Sale</h1>
+                    </div>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="Username" id="Username_label">Username: </label>
+                    <input type="text" id="name1_inp" name="Username" placeholder="Enter Username" />
+                    <!---</form>-->
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+
+                    <label for="FName" id="FName_label">First Name: </label>
+                    <input type="text" id="name2_inp" name="first_name" placeholder="Enter Your First Name" />
+                    <!--</form>-->
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+
+                    <label for="LName" id="LName_label">Last Name: </label>
+                    <input type="text" id="name3_inp" name="last_name" placeholder="Enter Your Last Name" />
+                    <!--</form>-->
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+
+                    <label for="PWord" id="PWord_label">Password: </label>
+                    <input type="password" id="name4_inp" name="pass_word" placeholder="Enter Your Password" />
+                    <!--</form>-->
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+
+                    <label for="PNumber" id="PNumber_label">Phone Number: </label>
+                    <input type="text" id="name5_inp" name="p_number" placeholder="Enter Your Phone Number" />
+                    <!---</form>-->
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+
+                    <label for="Email" id="Email_label">Email: </label>
+                    <input type="text" id="name6_inp" name="e_mail" placeholder="Enter Your Email" />
+                    <!--</form>-->
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    <input type="checkbox" />
+                    <label for="checkbox" id="checkBoxLabel">Check the box for an email confirmation</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <!-- <form action="">-->
+                    <label for="transactions">Choose a Genre</label>
+                    <select name="transactions" id="transactions">
+                        <option value="select">Select A Genre</option>
+                        <option value="trap">Trap</option>
+                        <option value="r&b">R&B</option>
+                        <option value="boombap">Boom Bap</option>
+                        <option value="pop">Pop</option>
+                        <option value="rock">Rock</option>
+                        <option value="alt">Alternative</option>
+                    </select>
+                    <div class="submit">
+                        <input type="submit" id="submit" value="Submit" onclick="validate()"/>
+                        <input type="reset" id="reset" value="Reset" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+
+
+
+</body>
+</html>
